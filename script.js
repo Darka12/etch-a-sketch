@@ -25,7 +25,13 @@ function resetGrid() {
   let gridCells = document.querySelectorAll('div.cellClass');
   gridCells.forEach(cell => {
     cell.style.background = 'white';
-  })
+  }) 
+}
+
+function newGrid() {
+  const container = document.getElementById("container");
+  let userChoice = prompt("Please choose a grid size by entering a number between 1 - 100.");
+  console.log(userChoice);
   
 }
 
