@@ -47,6 +47,7 @@ function newGrid() {
     container.style.gridTemplateColumns = `repeat(${userChoice}, 1fr)`;
     container.appendChild(cell);
   }
+  createColors()
 }
 
 createGrid()
