@@ -9,4 +9,14 @@ function createGrid() {
   }
 }
 
+function createColors() {
+  let gridCells = document.querySelectorAll('div.cellClass');
+  gridCells.forEach(cell => {
+    cell.addEventListener('mouseover', function() {
+      cell.style.background = 'black';
+    })
+  })
+}
+
 createGrid()
+createColors()
