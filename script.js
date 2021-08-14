@@ -30,9 +30,23 @@ function resetGrid() {
 
 function newGrid() {
   const container = document.getElementById("container");
-  let userChoice = prompt("Please choose a grid size by entering a number between 1 - 100.");
-  console.log(userChoice);
-  
+  do {
+   userChoice = parseInt(window.prompt("Please choose a grid size by entering a number between 1 and 100", ""), 10);} while(isNaN(userChoice) || userChoice > 100 || userChoice < 1);
+
+  while (container.firstChild) {
+    container.removeChild(container.lastChild);
+  }
+
+  let size = userChoice * userChoice;
+
+  for (let i = 0; i < size; i++) {
+    let cell = document.createElement('div');
+    cell.classList.add('cellClass');
+    cell.style.border = '1px solid black';
+    container.style.gridTemplateRows = `repeat(${userChoice}, 1fr)`;
+    container.style.gridTemplateColumns = `repeat(${userChoice}, 1fr)`;
+    container.appendChild(cell);
+  }
 }
 
 createGrid()
