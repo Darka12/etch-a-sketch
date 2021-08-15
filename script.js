@@ -50,6 +50,10 @@ function newGrid() {
   createColors()
 }
 
+function rgbMode() {
+  
+}
+
 createGrid()
 createColors()
 
