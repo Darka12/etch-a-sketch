@@ -51,12 +51,37 @@ function newGrid() {
 }
 
 function rgbMode() {
-  const randomBetween = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
-  const r = randomBetween(0, 255);
-  const g = randomBetween(0, 255);
-  const b = randomBetween(0, 255);
-  const rgb = `rgb(${r},${g},${b})`; // Collect all to a css color string
-  console.log(rgb);
+  const container = document.getElementById("container");
+  do {
+   userChoice = parseInt(window.prompt("Please choose a grid size by entering a number between 1 and 100", ""), 10);} while(isNaN(userChoice) || userChoice > 100 || userChoice < 1);
+
+  while (container.firstChild) {
+    container.removeChild(container.lastChild);
+  }
+
+  let size = userChoice * userChoice;
+
+  for (let i = 0; i < size; i++) {
+    let cell = document.createElement('div');
+    cell.classList.add('cellClass');
+    cell.style.border = '1px solid black';
+    container.style.gridTemplateRows = `repeat(${userChoice}, 1fr)`;
+    container.style.gridTemplateColumns = `repeat(${userChoice}, 1fr)`;
+    container.appendChild(cell);
+  }
+  
+  let gridCells = document.querySelectorAll('div.cellClass');
+  gridCells.forEach(cell => {
+    cell.addEventListener('mouseover', function() {
+      const randomBetween = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
+      const r = randomBetween(0, 255);
+      const g = randomBetween(0, 255);
+      const b = randomBetween(0, 255);
+      const rgb = `rgb(${r},${g},${b})`;
+      cell.style.background = rgb;
+      cell.style.border = '1px solid black';
+    })
+  })
 }
 
 createGrid()
