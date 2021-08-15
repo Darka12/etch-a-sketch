@@ -2,12 +2,21 @@ body {
   background-color: grey;
 }
 
+h2 {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  margin-top: 1.5em;
+  font-size: 30px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
 .buttons {
   display: flex;
   align-content: center;
   justify-content: center;
-  margin-top: 7em;
-  margin-bottom: 1em;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
 }
 
 .button {
@@ -15,6 +24,12 @@ body {
   font-weight: bold;
   border-color: black;
   margin: 1em;
+}
+
+.button:hover {
+  color:darkslategray;
+  border-color: darkslategray;
+  border-style: solid;
 }
 
 
